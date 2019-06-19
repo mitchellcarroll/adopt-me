@@ -1,0 +1,26 @@
+{
+  "name": "adopt-me",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "format": "prettier \"src/**/*.{js,html}\" --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitchellcarroll/adopt-me.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mitchellcarroll/adopt-me/issues"
+  },
+  "homepage": "https://github.com/mitchellcarroll/adopt-me#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "prettier": "^1.18.2"
+  }
+}
