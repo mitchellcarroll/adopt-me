@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html",
+    "dev:mock": "cross-env PET_MOCK=mock npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "format": "prettier \"src/**/*.{js,html}\" --write"
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/mitchellcarroll/adopt-me#readme",
   "devDependencies": {
     "babel-eslint": "^10.0.2",
+    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.17.3",
