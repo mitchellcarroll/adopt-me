@@ -23,9 +23,9 @@ class ErrorBoundary extends Component {
       return (
         <h1>
           There was an error with this listing. <Link to="/">Click here
-          </Link> to go back to the home page or wait five seconds.
+          </Link>{" "} to go back to the home page or wait five seconds.
         </h1>
-      )
+      );
     }
 
     return this.props.children

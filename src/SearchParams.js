@@ -1,50 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import pet, { ANIMALS } from "@frontendmasters/pet";
-import Results from './Results';
 import useDropdown from './useDropdown';
+import Results from './Results';
+
 
 const SearchParams = () => {
   // Seattle is the default state
-  const [location, setLocation] = useState("Seattle, WA");
-  const [breeds, setBreeds] = useState([]);
+  const [location, updateLocation] = useState("Seattle, WA");
+  const [breeds, updateBreeds] = useState([]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
-  const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
+  const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
   const [pets, setPets] = useState([]);
 
 
-  async function requestPets(){
+  async function requestPets() {
     const { animals } = await pet.animals({
       location,
       breed, 
       type: animal
-    })
+    });
 
     setPets(animals || []);
   }
 
   useEffect(() => {
-    setBreeds([]);
-    setBreed("");
+    updateBreeds([]);
+    updateBreed("");
 
-    pet.breeds(animal).then(({ breeds: apiBreeds }) => {
+    pet.breeds(animal).then(({ breeds }) => {
       const breedStrings = breeds.map(({ name }) => name);
-      setBreeds(breedStrings);
+      updateBreeds(breedStrings);
     }, console.error);
-  }, [ animal, setBreed, setBreeds ]);
+  }, [ animal, updateBreed, updateBreeds ]);
 
   return (
     <div className="search-params">
-      <form onSubmit={(e) => {
+      <form 
+        onSubmit={ e => {
         e.preventDefault();
         requestPets();
       }}>
         <label htmlFor="location">
           Location 
           <input 
-            id="location" 
+            id="location"
             value={location}
             placeholder="Location"
-            onChange={e => setLocation(e.target.value)} />
+            onChange={e => updateLocation(e.target.value)} />
         </label>
         <AnimalDropdown />
         <BreedDropdown />
@@ -52,7 +54,7 @@ const SearchParams = () => {
       </form>
       <Results pets={pets} />
     </div>
-  )
-}
+  );
+};
 
 export default SearchParams;
