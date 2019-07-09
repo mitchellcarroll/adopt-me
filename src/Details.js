@@ -73,7 +73,6 @@ export default function DetailsWithErrorBoundary(props){
   return(
     <ErrorBoundary>
       <Details {...props} />
-      <Details id={props.id} />
     </ErrorBoundary>
   )
 };

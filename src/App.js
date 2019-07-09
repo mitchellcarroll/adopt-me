@@ -8,7 +8,6 @@ import ThemeContext from './ThemeContext';
 const App = () => {
   const themeHook = useState('peru');
   return (
-    <React.StrictMode>
       <ThemeContext.Provider value = {themeHook}>
     <div>
       <header>
@@ -20,7 +19,6 @@ const App = () => {
       </Router>
     </div>
     </ThemeContext.Provider>
-    </React.StrictMode>
   )
 };
 

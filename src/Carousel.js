@@ -34,12 +34,11 @@ class Carousel extends React.Component{
               src={photo}
               className={index === active ? "active" : ""}
               alt="animal thumbnail" />
-            
           ))}
         </div>
       </div>
-    )
+    );
   }
-};
+}
 
 export default Carousel;
