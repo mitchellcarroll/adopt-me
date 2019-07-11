@@ -2,26 +2,14 @@
   "name": "adopt-me",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "parcel build --public-url ./dist/ src/index.html",
-    "start": "npm -s run build && babel-node server/index.js",
-    "dev": "parcel src/index.html",
-    "dev:mock": "cross-env PET_MOCK=mock npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "format": "prettier \"src/**/*.{js,html}\" --write"
+  "main": "src/App.js",
+  "dependencies": {
+    "@frontendmasters/pet": "^1.0.3",
+    "@reach/router": "^1.2.1",
+    "express": "^4.16.4",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mitchellcarroll/adopt-me.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mitchellcarroll/adopt-me/issues"
-  },
-  "homepage": "https://github.com/mitchellcarroll/adopt-me#readme",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
@@ -38,15 +26,26 @@
     "parcel-bundler": "^1.12.3",
     "prettier": "^1.18.2"
   },
-  "dependencies": {
-    "@babel/node": "^7.5.0",
-    "@frontendmasters/pet": "^1.0.3",
-    "@reach/router": "^1.2.1",
-    "babel-cli": "^6.26.0",
-    "express": "^4.17.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+  "scripts": {
+    "build": "parcel build --public-url ./dist/ src/index.html",
+    "clear-build-cache": "rm -rf .cache/ dist/",
+    "dev": "parcel src/index.html",
+    "dev:mock": "cross-env PET_MOCK=mock parcel src/index.html",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "start": "npm -s run build && babel-node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitchellcarroll/adopt-me.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/mitchellcarroll/adopt-me/issues"
+  },
+  "homepage": "https://github.com/mitchellcarroll/adopt-me#readme",
   "browserslist": [
     "last 2 Chrome versions",
     "last 2 ChromeAndroid versions",
